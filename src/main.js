@@ -10,7 +10,9 @@ var currentCover;
 // Add your event listeners here 👇
 
 
+
 // Create your event handlers and other functions here 👇
+
 
 
 // We've provided one function to get you started
