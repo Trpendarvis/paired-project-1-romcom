@@ -36,6 +36,7 @@ var currentCover;
 window.addEventListener("load", showRandom);
 randomCoverButton.addEventListener("click", showRandom);
 makeYourOwnCoverButton.addEventListener("click", displayForm);
+homeButton.addEventListener("click",displayHome);
 //we need to make a button to "make own cover"
 
 // Create your event handlers and other functions here 👇
@@ -60,7 +61,17 @@ function displayForm() {
   randomCoverButton.classList.add("hidden");
   saveCoverButton.classList.add("hidden");
   viewSavedButton.classList.add("hidden");
-//homeButton.classList.add("hidden")
+  homeButton.classList.remove("hidden")
+};
+
+function displayHome() {
+  homeView.classList.remove("hidden");
+  form.classList.add("hidden");
+  makeYourOwnCoverButton.classList.remove("hidden");
+  randomCoverButton.classList.remove("hidden");
+  saveCoverButton.classList.remove("hidden");
+  viewSavedButton.classList.remove("hidden");
+  homeButton.classList.add("hidden")
 };
     // var userCover = covers[getRandomIndex(covers)];
     // var newTitle = titles[getRandomIndex(titles)];
