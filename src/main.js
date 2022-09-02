@@ -1,5 +1,3 @@
-// Create variables targetting the relevant DOM elements here 👇
-
 var controls = document.querySelector(".controls");
 var homeButton = document.querySelector(".home-button");
 var randomCoverButton = document.querySelector(".random-cover-button");
@@ -22,14 +20,10 @@ var savedView = document.querySelector(".saved-view");
 var savedCovers = document.querySelector(".saved-covers-select");
 var form = document.querySelector(".form-view");
 var customCoverButton = document.querySelector(".create-new-book-button");
-
-
-// We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
 var currentCover;
-
 
 // Add your event listeners here 👇
 
@@ -38,7 +32,6 @@ randomCoverButton.addEventListener("click", showRandom);
 makeYourOwnCoverButton.addEventListener("click", displayForm);
 homeButton.addEventListener("click", displayHome);
 viewSavedButton.addEventListener("click", displaySavedCovers);
-//needs to build fuction for saveCoverButton
 
 // Create your event handlers and other functions here 👇
 
@@ -53,7 +46,6 @@ function showRandom() {
   coverTagLine1.innerText = newCoverTagLine1;
   coverTagLine2.innerText = newCoverTagLine2;
 };
-
 
 function displayForm() {
   homeView.classList.add("hidden");
@@ -77,7 +69,7 @@ function displayHome() {
 
 function displaySavedCovers() {
   homeView.classList.add("hidden");
-  savedView.classList.add("hidden");
+  savedView.classList.remove("hidden");
   makeYourOwnCoverButton.classList.remove("hidden");
   randomCoverButton.classList.add("hidden");
   saveCoverButton.classList.add("hidden");
@@ -85,22 +77,6 @@ function displaySavedCovers() {
   homeButton.classList.remove("hidden")
 };
 
-    // var userCover = covers[getRandomIndex(covers)];
-    // var newTitle = titles[getRandomIndex(titles)];
-    // var userDescription1 = descriptors[getRandomIndex(descriptors)];
-    // var userDescription2 = descriptors[getRandomIndex(descriptors)];
-//we need to make a new function that will allow the make your own cover button work
-// and will displayForm for user to use
-
-  // userCover.src = newCover;
-  // userTitle.classList = newTitle;
-  // userDescription1.classList = newUserDescription1;
-  // userDescription2.classList = newUserDescription2;
-
-
-// We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
-// function logClick() {
-//   console.log("button was clicked")
