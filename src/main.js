@@ -19,7 +19,7 @@ var overlay = document.querySelector(".overlay");
 var savedView = document.querySelector(".saved-view");
 var savedCovers = document.querySelector(".saved-covers-select");
 var form = document.querySelector(".form-view");
-var customCoverButton = document.querySelector(".create-new-book-button");
+var makeMyBookButton = document.querySelector(".create-new-book-button");
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
@@ -32,6 +32,7 @@ randomCoverButton.addEventListener("click", showRandom);
 makeYourOwnCoverButton.addEventListener("click", displayForm);
 homeButton.addEventListener("click", displayHome);
 viewSavedButton.addEventListener("click", displaySavedCovers);
+makeMyBookButton.addEventListener("click", createCustomBook);
 
 // Create your event handlers and other functions here 👇
 
@@ -76,6 +77,35 @@ function displaySavedCovers() {
   viewSavedButton.classList.remove("hidden");
   homeButton.classList.remove("hidden")
 };
+
+function createCustomBook() {
+  event.preventDefault();
+
+  var inputCover = userCover.value;
+  var inputTitle = userTitle.value;
+  // var inputCoverTagLine1 = descriptor1.value;
+  // var inputCoverTagLine2 = descriptor2.value;
+
+  covers.push(inputCover);
+  titles.push(inputTitle);
+  // descriptors.push(inputDescriptor1)
+  // descriptors.push(inputDescriptor2)
+
+  currentCover = new Cover(inputCover, inputTitle, /*inputDescriptor1, inputDescriptor2*/);
+
+  coverImage.src = inputCover;
+  coverTitle.innerText = inputTitle;
+  // coverTagLine1.innerText = inputCoverTagLine1;
+  // coverTagLine2.innerText = inputCoverTagLine2;
+
+////Code on lines 81 to 103 is working and correct describtors/ tagline is causing
+////a problem due to it being the wrong variable we will need to track down what the
+////correct var is we will need to uncomment 1 descriptor/tag at a time to check.
+////when using the dev tool and hovering over the area it does call it tagline 
+////lets start at looking at tag line first. do 1 descriptor at a time!
+  displayHome();
+};
+
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
