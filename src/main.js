@@ -33,6 +33,7 @@ makeYourOwnCoverButton.addEventListener("click", displayForm);
 homeButton.addEventListener("click", displayHome);
 viewSavedButton.addEventListener("click", displaySavedCovers);
 makeMyBookButton.addEventListener("click", createCustomBook);
+//saveCoverButton.addEventListener("click", saveCurrentCover);
 
 // Create your event handlers and other functions here 👇
 
@@ -78,33 +79,35 @@ function displaySavedCovers() {
   homeButton.classList.remove("hidden")
 };
 
+
 function createCustomBook() {
   event.preventDefault();
 
   var inputCover = userCover.value;
   var inputTitle = userTitle.value;
-  // var inputCoverTagLine1 = descriptor1.value;
-  // var inputCoverTagLine2 = descriptor2.value;
+  var inputDescriptor1 = userDescription1.value;
+  var inputDescriptor2 = userDescription2.value;
 
   covers.push(inputCover);
   titles.push(inputTitle);
-  // descriptors.push(inputDescriptor1)
-  // descriptors.push(inputDescriptor2)
+  descriptors.push(inputDescriptor1, inputDescriptor2);
 
-  currentCover = new Cover(inputCover, inputTitle, /*inputDescriptor1, inputDescriptor2*/);
+
 
   coverImage.src = inputCover;
   coverTitle.innerText = inputTitle;
-  // coverTagLine1.innerText = inputCoverTagLine1;
-  // coverTagLine2.innerText = inputCoverTagLine2;
+  coverTagLine1.innerText = inputDescriptor1;
+  coverTagLine2.innerText = inputDescriptor2;
 
-////Code on lines 81 to 103 is working and correct describtors/ tagline is causing
-////a problem due to it being the wrong variable we will need to track down what the
-////correct var is we will need to uncomment 1 descriptor/tag at a time to check.
-////when using the dev tool and hovering over the area it does call it tagline 
-////lets start at looking at tag line first. do 1 descriptor at a time!
+
   displayHome();
 };
+
+
+// function saveCover() {
+//   if ()
+// };
+
 
 
 function getRandomIndex(array) {
