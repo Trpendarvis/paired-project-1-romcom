@@ -96,19 +96,32 @@ function saveUserCoverButton() {
   var savedCovers = [
     new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
   ];
+  // this piece of code was prebuilt what does it do, will explore dev tools to see functionality
   var currentCover;
 
-  <form>
-    <label for="cover">Cover</label>
-    <input class="user-cover" type="text" id="cover" />
-    <label for="title">Title</label>
-    <input class="user-title" type="text" id="title">
-    <label for="descriptor1">First descriptor</label>
-    <input class="user-desc1" type="text" id="descriptor1" />
-    <label for="descriptor2">Second descriptor</label>
-    <input class="user-desc2" type="text" id="descriptor2" />
-    <button class="create-new-book-button">Make my book</button>
-  </form>
+  homeView.classList.add("hidden");
+  savedView.classList.remove("hidden");
+  makeYourOwnCoverButton.classList.remove("hidden");
+  randomCoverButton.classList.add("hidden");
+  saveCoverButton.classList.add("hidden");
+  viewSavedButton.classList.add("hidden");
+  homeButton.classList.remove("hidden");
+  
+// HTML is needed to be able to display new function within the new page "saved covers"
+// need to .remove var savedView = document.querySelector(".saved-view"); this will allow
+// functionality to the saveUserCoverButton and display a new page so we can see the newly
+// disigned HTML.
+
+    // <label for="cover">Cover</label>
+    // <input class="user-cover" type="text" id="cover" />
+    // <label for="title">Title</label>
+    // <input class="user-title" type="text" id="title">
+    // <label for="descriptor1">First descriptor</label>
+    // <input class="user-desc1" type="text" id="descriptor1" />
+    // <label for="descriptor2">Second descriptor</label>
+    // <input class="user-desc2" type="text" id="descriptor2" />
+    // <button class="create-new-book-button">Make my book</button>
+    //
 
 };
 
