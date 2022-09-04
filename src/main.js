@@ -104,6 +104,16 @@ function saveUserCoverButton() {
 // functionality to the saveUserCoverButton and display a new page so we can see the newly
 // disigned HTML.
 
+<section class="mini-cover" id="${savedCovers.length}">
+<img class="cover-image" src="${currentCover.covers}">
+
+};
+// wants to identify the current cover user is viewing and save it.
+//to build HTML both html file and CSS file are referenced to give insight to required coding elements
+//"mini" is already built into CSS to call on classes built in HTML but displayed with smaller pixels
+//building arrays to call and save data stored.
+//"id" is blue on HTML side but is orange on JS side why? spacing HTML?
+
     // <label for="cover">Cover</label>
     // <input class="user-cover" type="text" id="cover" />
     // <label for="title">Title</label>
@@ -114,9 +124,6 @@ function saveUserCoverButton() {
     // <input class="user-desc2" type="text" id="descriptor2" />
     // <button class="create-new-book-button">Make my book</button>
     //
-
-};
-
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
