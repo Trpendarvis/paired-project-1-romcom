@@ -99,14 +99,6 @@ function saveUserCoverButton() {
   // this piece of code was prebuilt what does it do, will explore dev tools to see functionality
   var currentCover;
 
-  homeView.classList.add("hidden");
-  savedView.classList.remove("hidden");
-  makeYourOwnCoverButton.classList.remove("hidden");
-  randomCoverButton.classList.add("hidden");
-  saveCoverButton.classList.add("hidden");
-  viewSavedButton.classList.add("hidden");
-  homeButton.classList.remove("hidden");
-  
 // HTML is needed to be able to display new function within the new page "saved covers"
 // need to .remove var savedView = document.querySelector(".saved-view"); this will allow
 // functionality to the saveUserCoverButton and display a new page so we can see the newly
