@@ -104,9 +104,19 @@ function saveUserCoverButton() {
 // functionality to the saveUserCoverButton and display a new page so we can see the newly
 // disigned HTML.
 
-<section class="mini-cover" id="${savedCovers.length}">
-<img class="cover-image" src="${currentCover.covers}">
-
+// <section>
+//
+// <class="mini-cover" id="${savedCovers.length}">
+// // this is used to display the saved covers just smaller
+// <img class="cover-image" src="${currentCover.covers}"/>
+//
+// <h2 class="cover-title"> "${currentCover.title}" </h2>
+// <h3 class="tagline">A tale of <span class="tagline-1">`${currentCover.tagline1}`</span>
+// and <span class="tagline-2">${currentCover.tagline2}</span></h3>
+//
+// </section>
+// block of code breaks the rest of the code meaning that a variable is incorrect and must be changed.
+//logic seems ok need to look at "${}" why are some not coloring
 };
 // wants to identify the current cover user is viewing and save it.
 //to build HTML both html file and CSS file are referenced to give insight to required coding elements
