@@ -17,7 +17,7 @@ var userDescription2 = document.querySelector(".user-desc2");
 var priceTag = document.querySelector(".price-tag");
 var overlay = document.querySelector(".overlay");
 var savedView = document.querySelector(".saved-view");
-var savedCovers = document.querySelector(".saved-covers-select");
+var savedCovers = document.querySelector(".saved-covers-section");
 var form = document.querySelector(".form-view");
 var makeMyBookButton = document.querySelector(".create-new-book-button");
 var savedCovers = [
@@ -25,17 +25,13 @@ var savedCovers = [
 ];
 var currentCover;
 
-// Add your event listeners here 👇
-
 window.addEventListener("load", showRandom);
 randomCoverButton.addEventListener("click", showRandom);
 makeYourOwnCoverButton.addEventListener("click", displayForm);
 homeButton.addEventListener("click", displayHome);
 viewSavedButton.addEventListener("click", displaySavedCovers);
 makeMyBookButton.addEventListener("click", createCustomBook);
-//saveCoverButton.addEventListener("click", saveCurrentCover);
-
-// Create your event handlers and other functions here 👇
+saveCoverButton.addEventListener("click", saveUserCover);
 
 function showRandom() {
     var newCover = covers[getRandomIndex(covers)];
@@ -52,6 +48,7 @@ function showRandom() {
 function displayForm() {
   homeView.classList.add("hidden");
   form.classList.remove("hidden");
+  savedView.classList.add("hidden");
   makeYourOwnCoverButton.classList.add("hidden");
   randomCoverButton.classList.add("hidden");
   saveCoverButton.classList.add("hidden");
@@ -69,17 +66,6 @@ function displayHome() {
   homeButton.classList.add("hidden")
 };
 
-function displaySavedCovers() {
-  homeView.classList.add("hidden");
-  savedView.classList.remove("hidden");
-  makeYourOwnCoverButton.classList.remove("hidden");
-  randomCoverButton.classList.add("hidden");
-  saveCoverButton.classList.add("hidden");
-  viewSavedButton.classList.remove("hidden");
-  homeButton.classList.remove("hidden")
-};
-
-
 function createCustomBook() {
   event.preventDefault();
 
@@ -92,23 +78,37 @@ function createCustomBook() {
   titles.push(inputTitle);
   descriptors.push(inputDescriptor1, inputDescriptor2);
 
-
-
   coverImage.src = inputCover;
   coverTitle.innerText = inputTitle;
   coverTagLine1.innerText = inputDescriptor1;
   coverTagLine2.innerText = inputDescriptor2;
 
-
   displayHome();
 };
 
+function displaySavedCovers() {
+  homeView.classList.add("hidden");
+  savedView.classList.remove("hidden");
+  makeYourOwnCoverButton.classList.remove("hidden");
+  randomCoverButton.classList.add("hidden");
+  saveCoverButton.classList.add("hidden");
+  viewSavedButton.classList.add("hidden");
+  homeButton.classList.remove("hidden")
+};
 
-// function saveCover() {
-//   if ()
-// };
+function saveUserCover() {
+savedView.innerHTML +=
 
+`<section
+  class="mini-cover" id="${Date.now()}">
+  <img class="cover-image" src="${covers.covers}"/>
+  <h2 class="cover-title"> "${titles.title}" </h2>
+  <h3 class="tagline">A tale of <span class="tagline-1">${descriptors.tagline1}</span>
+  and <span class="tagline-2">${descriptors.tagline2}</span></h3>
+</section>`
 
+displaySavedCovers()
+};
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
