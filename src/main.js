@@ -17,13 +17,13 @@ var userDescription2 = document.querySelector(".user-desc2");
 var priceTag = document.querySelector(".price-tag");
 var overlay = document.querySelector(".overlay");
 var savedView = document.querySelector(".saved-view");
-var savedUserCovers = document.querySelector(".saved-covers-section");
+var savedCovers = document.querySelector(".saved-covers-section");
 var form = document.querySelector(".form-view");
 var makeMyBookButton = document.querySelector(".create-new-book-button");
-
-var currentCover = [
+var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
+var currentCover;
 
 window.addEventListener("load", showRandom);
 randomCoverButton.addEventListener("click", showRandom);
@@ -45,17 +45,6 @@ function showRandom() {
   coverTagLine2.innerText = newCoverTagLine2;
 };
 
-function displayHome() {
-  homeView.classList.remove("hidden");
-  form.classList.add("hidden");
-  savedView.classList.add("hidden");
-  makeYourOwnCoverButton.classList.remove("hidden");
-  randomCoverButton.classList.remove("hidden");
-  saveCoverButton.classList.remove("hidden");
-  viewSavedButton.classList.remove("hidden");
-  homeButton.classList.add("hidden")
-};
-
 function displayForm() {
   homeView.classList.add("hidden");
   form.classList.remove("hidden");
@@ -65,6 +54,16 @@ function displayForm() {
   saveCoverButton.classList.add("hidden");
   viewSavedButton.classList.add("hidden");
   homeButton.classList.remove("hidden")
+};
+
+function displayHome() {
+  homeView.classList.remove("hidden");
+  form.classList.add("hidden");
+  makeYourOwnCoverButton.classList.remove("hidden");
+  randomCoverButton.classList.remove("hidden");
+  saveCoverButton.classList.remove("hidden");
+  viewSavedButton.classList.remove("hidden");
+  homeButton.classList.add("hidden")
 };
 
 function createCustomBook() {
@@ -77,8 +76,7 @@ function createCustomBook() {
 
   covers.push(inputCover);
   titles.push(inputTitle);
-  descriptors.push(inputDescriptor1);
-  descriptors.push(inputDescriptor2);
+  descriptors.push(inputDescriptor1, inputDescriptor2);
 
   coverImage.src = inputCover;
   coverTitle.innerText = inputTitle;
@@ -96,15 +94,9 @@ function displaySavedCovers() {
   saveCoverButton.classList.add("hidden");
   viewSavedButton.classList.add("hidden");
   homeButton.classList.remove("hidden")
-//???
 };
-// this is a display page for the covers that are saved
 
 function saveUserCover() {
-
-//   if(!saveUserCover.includes(currentCover)) {
-//     currentCover.push(saveUserCover);
-//
 savedView.innerHTML +=
 
 `<section
@@ -117,13 +109,6 @@ savedView.innerHTML +=
 
 displaySavedCovers()
 };
-
-// wants to identify the current cover user is viewing and save it.
-//to build HTML both html file and CSS file are referenced to give insight to required coding elements
-//"mini" is already built into CSS to call on classes built in HTML but displayed with smaller pixels
-//building arrays to call and save data stored.
-//"id" is blue on HTML side but is orange on JS side why? spacing HTML?
-
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
